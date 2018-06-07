@@ -78,7 +78,7 @@ func QueryUser(username string) user {
 
 func register(w http.ResponseWriter, r *http.Request) {
 	if r.Method != "POST" {
-		http.ServeFile(w, r, "register.html")
+		http.ServeFile(w, r, "view/register.html")
 		return
 	}
 
@@ -118,7 +118,7 @@ func login(w http.ResponseWriter, r *http.Request) {
 	}
 
 	if r.Method != "POST" {
-		http.ServeFile(w, r, "login.html")
+		http.ServeFile(w, r, "view/login.html")
 		return
 	}
 
@@ -152,7 +152,7 @@ func home(w http.ResponseWriter, r *http.Request) {
 		"message":  "Selamat datang!",
 	}
 
-	var t, err = template.ParseFiles("home.html")
+	var t, err = template.ParseFiles("view/home.html")
 	if err != nil {
 		fmt.Println(err.Error())
 		return
